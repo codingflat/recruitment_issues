@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+@use "sass:math";
+
+// font-family
+@mixin font_sans {
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Arial, Meiryo, sans-serif;
+}
+
+// font-size
+// $fz: 文字サイズ、$base: ベース文字サイズ
+@mixin fz($size, $base: 16) {
+  font-size: $size + px;
+  font-size: math.div($size, $base) + rem;
+}
+
+// font-weight
+@mixin font_weight_light {
+  font-weight: 300;
+}
+@mixin font_weight_regular {
+  font-weight: 400;
+}
+@mixin font_weight_medium {
+  font-weight: 700;
+}
+@mixin font_weight_semiBold {
+  font-weight: 600;
+}
+@mixin font_weight_bold {
+  font-weight: 700;
+}
+
+// line-height
+// $line: 行間、$fz: 文字サイズ
+@mixin line_height($line, $fz) {
+  line-height: math.div($line, $fz);
+}

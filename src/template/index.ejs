@@ -1,0 +1,97 @@
+<%
+const projectName = '採用課題';
+
+const list = [
+    { name: '開閉メニュー作成', url: 'hamburger.html' },
+];
+-%>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= projectName -%> - 一覧</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 50px;
+        }
+        .table {
+            border-top: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+        }
+        .table thead tr th,
+        .table tbody tr td {
+            border: 1px solid #ccc;
+        }
+        .table thead tr th {
+            border-bottom: 2px solid #ccc;
+        }
+        .page-header {
+            margin-bottom: 10px;
+        }
+        .navbar-fixed-top {
+            border: 0;
+        }
+        .main {
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .main {
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+            .table {
+                width: 15%;
+            }
+            .table .url {
+                width: 85%;
+            }
+            .table .title {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><%= projectName -%></a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 main">
+            <p class="page-header">課題一覧</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <colgroup>
+                        <col style="width:30%;">
+                        <col style="width:70%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="title">課題</th>
+                        <th class="url">URL</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% list.forEach((item) => { -%>
+                        <tr>
+                            <td class="title"><%- item.name -%></td>
+                            <td class="url"><a href="/<%- item.url -%>">/<%- item.url -%></a></td>
+                        </tr>
+                    <% }); -%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

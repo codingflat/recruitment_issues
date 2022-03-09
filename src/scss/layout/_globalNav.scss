@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+@use "../global";
+
+.l-globalNav {
+  .l-globalNav__list {
+    @include global.lg {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .l-globalNav__item {
+    @include global.fz(16);
+    & + .l-globalNav__item {
+      @include global.under_lg {
+        margin-top: 20px;
+      }
+      @include global.lg {
+        margin-left: 20px;
+      }
+    }
+  }
+  .l-globalNav__itemLink {
+    display: block;
+    text-decoration: none;
+    @include global.hover {
+      text-decoration: underline;
+    }
+  }
+}

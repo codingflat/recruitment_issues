@@ -1,0 +1,38 @@
+<%
+// プロパティ
+const mainVisual = (() => {
+    const { heading, image } = props;
+    return {
+        heading: heading,
+        image: {
+            src : image.src,
+            srcSet : image.srcSet,
+            alt : image.alt || '',
+            width : image.width || 1200,
+            height : image.height || 600
+        }
+    }
+})();
+-%>
+<div class="c-mainVisual">
+    <div class="c-mainVisual__inner">
+        <h1 class="c-mainVisual__heading"><%- mainVisual.heading -%></h1>
+    </div>
+    <div class="c-mainVisual__background">
+        <picture>
+            <source
+                srcset="<%= mainVisual.image.srcSet -%>"
+                type="image/jpeg"
+                media="(max-width: 768px)"
+            >
+            <img
+                src="<%= mainVisual.image.src -%>"
+                alt="<%= mainVisual.image.alt -%>"
+                width="<%= mainVisual.image.width -%>"
+                height="<%= mainVisual.image.height -%>"
+                decoding="async"
+                class="c-mainVisual__backgroundImage"
+            >
+        </picture>
+    </div>
+</div>

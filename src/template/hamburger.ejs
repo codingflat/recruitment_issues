@@ -1,0 +1,39 @@
+<%- include('./_include/common/_head', {
+props: {
+title: 'JavaScript_開閉メニュー作成'
+}
+}) -%>
+<%- include('./_include/_l-header') -%>
+<main class="l-main">
+    <%- include('./_include/_c-mainVisual', {
+    props: {
+    heading: '開閉メニュー作成',
+    image: {
+    src : 'https://placehold.jp/1200x600.png',
+    srcSet : 'https://placehold.jp/800x400.png',
+    alt : '',
+    width : 1200,
+    height : 600
+    }
+    }
+    }) -%>
+    <div class="l-contents">
+        <div class="l-contents__wide">
+            <% for (i = 0; i < 5; i += 1) { -%>
+                <div class="l-contents__section">
+                    <section class="l-section">
+                        <h2 class="c-heading02">タイトルです。タイトルです。タイトルです。</h2>
+                        <div class="l-section__body">
+                            <p>本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
+                            <p>本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
+                            <p>本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
+                        </div>
+                    </section>
+                </div>
+            <% } -%>
+        </div>
+    </div>
+</main>
+<%- include('./_include/_l-footer') -%>
+</body>
+</html>

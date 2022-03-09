@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+@use "../global";
+
+.l-header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: global.$color_white;
+  width: 100%;
+  height: global.$header_height_sp;
+  @include global.md {
+    height: global.$header_height;
+  }
+  .l-header__inner {
+    display: flex;
+    align-items: center;
+    @include global.content_width(wide);
+    @include global.under_lg {
+      justify-content: space-between;
+    }
+  }
+  .l-header__meta {
+    display: grid;
+    grid-template: "logo heading" auto "logo subHeading" auto / auto auto;
+    grid-column-gap: 18px;
+  }
+  .l-header__heading {
+    grid-area: heading;
+    margin-top: auto;
+    @include global.font_weight_bold;
+    @include global.fz(20);
+  }
+  .l-header__subHeading {
+    grid-area: subHeading;
+    color: global.$color_gray;
+    @include global.fz(12);
+  }
+  .l-header__logo {
+    grid-area: logo;
+  }
+  .l-header__logoLink {
+    display: block;
+    @include global.hover_opacity;
+  }
+  .l-header__logoImage {
+    display: block;
+    width: 62px;
+    height: 44px;
+    @include global.object_fit(contain);
+  }
+  .l-header__nav {
+    @include global.under_lg {
+      // TODO: SPでは一旦display: none;を指定しています
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    @include global.md {
+      margin-left: auto;
+    }
+  }
+}
