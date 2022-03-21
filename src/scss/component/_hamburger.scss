@@ -2,6 +2,142 @@
 
 @use "../global";
 
+.l-header__meta{
+  z-index: 5;
+}
+
+.l-header__heading.change{
+  color: white;
+}
+
+.l-header .l-header__subHeading.change{
+  color: white;
+  font-weight: 200;
+}
+
+.l-header__logoImage.change{
+  fill: white;
+}
+
+.l-header .l-header__logoImage.changeColor{
+  display: none;
+}
+
+.is-hide {
+  pointer-events: none;
+}
+
 .c-hamburger {
   // TODO: ハンバーガーボタンのスタイルはこちら
+  .menu-btn{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #004BB1;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 350ms ease;
+
+    @media (max-width: 1024px)
+    {
+      top: 10px;
+      width: 50px;
+      height: 50px;
+      color: #004BB1;
+      background: white;
+    }
+
+    :hover {
+      cursor: pointer;
+    }
+
+    i{
+      font-size: 35px;
+    }
+
+    p{
+      font-size: 10px;
+    }
+  }
+
+  .menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #004BB1;
+
+    .menu__item{
+      width: 100%;
+      height: auto;
+      padding: .5em 1em;
+      text-align: center;
+      color: #fff;
+      box-sizing: border-box;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    .contact{
+      border: solid 2px white;
+      width: 250px;
+      border-radius: 20px;
+    }
+  }
+
+  .menu{
+    transform: translateX(100vw);
+    transition: all .3s linear;
+  }
+
+  .menu.is-active{
+    transform: translateX(0);
+  }
+
+  .close-hamburger::before{
+    content:'×';
+    font-size: 50px;
+    line-height: 0;
+  }
+
+  .fa-display{
+    display: none;
+  }
+}
+
+.fa-display{
+  display: none;
+}
+
+@media (max-width: 1024px){
+  .l-header__heading{
+    vertical-align: middle;
+  }
+
+  .l-header__subHeading{
+    display: none;
+  }
+
+  .menu-btn.is-active{
+    background: #004BB1;
+    color: white;
+  }
 }
