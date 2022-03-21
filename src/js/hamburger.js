@@ -27,6 +27,7 @@ export const hamburger = () => {
       isScrolling = true;
     }
  });
+
  //スクロールでの表示非表示
  const pageTopBtn = document.getElementById('js-scroll-hide');
  const pageTopMenu = document.getElementById('js-scrolling-menu');
@@ -36,7 +37,7 @@ export const hamburger = () => {
 } 
  window.addEventListener("scroll", () => {
   const currentY = window.pageYOffset;
-  if ( currentY > 400){
+  if ( currentY > 300){
     setTimeout(function(){
       pageTopBtn.style.opacity = 1;
     }, 1);
@@ -53,11 +54,47 @@ export const hamburger = () => {
       pageTopMenu.classList.remove('fa-display');
     }
   }
+
+  //スクロールに応じた背景色指定
+  if (window.matchMedia('(max-width: 1024px)').matches) {
+    document.getElementById('js-scroll-hide').style.backgroundColor = "none";
+  }else{
+      if(currentY < 700){
+        document.getElementById('js-scroll-hide').style.backgroundColor = "#004BB1";
+        console.log('aaa');
+      } else if(currentY > 700 && currentY < 900){
+        document.getElementById('js-scroll-hide').style.backgroundColor = "skyblue";
+        console.log('bbb');
+      } else if(currentY > 900 && currentY < 1100){
+        document.getElementById('js-scroll-hide').style.backgroundColor = "orange";
+      }
+  }
 });
 
-//リサイズ
+//ブレイクポイントを跨いだ際にメニューをとじる
 window.addEventListener("resize", ()=>{
-  //ここにリサイズした後に実行したい処理を記述
-  console.log("resize");
+  if (window.matchMedia('(max-width: 1024px)').matches) {
+    document.getElementById('js-scroll-hide').style.backgroundColor = "transparent";
+    if(document.getElementById('menuList').className == 'menu is-active'){
+      document.querySelector('.menu-btn').classList.toggle('is-active');
+      document.querySelector('.menu').classList.toggle('is-active');
+      document.querySelector('.fa-bars').classList.toggle('fa-display');
+      document.querySelector('.close-hamburger').classList.toggle('fa-display');
+      document.querySelector('.l-header__heading').classList.toggle('change');
+      document.querySelector('.l-header__subHeading').classList.toggle('change');
+      document.querySelector('.XDWhite').classList.toggle('changeColor');
+      document.querySelector('.XDColor').classList.toggle('changeColor');
+  
+      if(isScrolling == true){
+        document.addEventListener('touchmove', disableScroll, { passive: false });
+        document.addEventListener('mousewheel', disableScroll, { passive: false });
+        isScrolling = false;
+      }else{
+        document.removeEventListener('touchmove', disableScroll, { passive: false });
+        document.removeEventListener('mousewheel', disableScroll, { passive: false });
+        isScrolling = true;
+      }
+    }
+  }
 }, false);
 };
