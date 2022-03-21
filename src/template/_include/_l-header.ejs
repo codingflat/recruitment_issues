@@ -5,11 +5,12 @@
             <p role="doc-subtitle" class="l-header__subHeading">渋谷のコーディング専門プロダクション</p>
             <div class="l-header__logo">
                 <a href="/" class="l-header__logoLink" title="トップページへ戻る">
-                    <img src="/img/common/logo.svg" alt="XD" width="128" height="128" decoding="async" class="l-header__logoImage">
+                    <img src="/img/common/logo.svg" alt="XD" width="128" height="128" decoding="async" class="l-header__logoImage XDColor">
+                    <img src="/img/common/logo_white.svg" alt="XD" width="128" height="128" decoding="async" class="l-header__logoImage XDWhite changeColor">
                 </a>
             </div>
         </div>
-        <div class="l-header__nav">
+        <div class="l-header__nav" id="js-scrolling-menu">
             <%- include('_l-globalNav') -%>
         </div>
         <%- include('_c-hamburger') -%>

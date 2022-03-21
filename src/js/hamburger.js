@@ -16,6 +16,7 @@ export const hamburger = () => {
     document.querySelector('.l-header__subHeading').classList.toggle('change');
     document.querySelector('.XDWhite').classList.toggle('changeColor');
     document.querySelector('.XDColor').classList.toggle('changeColor');
+
     if(isScrolling == true){
       document.addEventListener('touchmove', disableScroll, { passive: false });
       document.addEventListener('mousewheel', disableScroll, { passive: false });
@@ -26,7 +27,6 @@ export const hamburger = () => {
       isScrolling = true;
     }
  });
-
  //スクロールでの表示非表示
  const pageTopBtn = document.getElementById('js-scroll-hide');
  const pageTopMenu = document.getElementById('js-scrolling-menu');
@@ -54,4 +54,10 @@ export const hamburger = () => {
     }
   }
 });
+
+//リサイズ
+window.addEventListener("resize", ()=>{
+  //ここにリサイズした後に実行したい処理を記述
+  console.log("resize");
+}, false);
 };
